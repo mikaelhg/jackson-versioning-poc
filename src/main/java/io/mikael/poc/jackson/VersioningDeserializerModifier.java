@@ -45,13 +45,11 @@ public class VersioningDeserializerModifier extends BeanDeserializerModifier {
 
     @Override
     public BeanDeserializerBuilder updateBuilder(final DeserializationConfig config,
-                                                 final BeanDescription beanDesc, BeanDeserializerBuilder builder)
+                                                 final BeanDescription beanDesc,
+                                                 final BeanDeserializerBuilder builder)
     {
-        for (var fieldName : ignorableFields) {
-            builder.addIgnorable(fieldName);
-        }
+        ignorableFields.forEach(builder::addIgnorable);
         return builder;
     }
-
 
 }
