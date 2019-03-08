@@ -2,6 +2,7 @@ package io.mikael.poc.test;
 
 import io.mikael.poc.Person;
 import io.mikael.poc.jackson.VersioningObjectMapper;
+import org.junit.Assert;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
@@ -34,9 +35,12 @@ public class VersioningTest {
 
         final var p_120_110 = om110.readValue(s120, Person.class);
         System.out.printf("p -> om(1, 2, 0) -> om(1, 1, 0) -> p: %s%n", p_120_110);
+        Assert.assertNull(p_120_110.claimToFame);
 
         final var p_120_100 = om100.readValue(s120, Person.class);
         System.out.printf("p -> om(1, 2, 0) -> om(1, 0, 0) -> p: %s%n", p_120_100);
+        Assert.assertNull(p_120_100.sport);
+        Assert.assertNull(p_120_100.claimToFame);
 
     }
 
