@@ -10,6 +10,7 @@ p -> om(1, 0, 0) -> json: {"name":"Muffin Man","address":"Drury Lane"}
 p -> om(1, 1, 0) -> json: {"name":"Muffin Man","address":"Drury Lane","sport":"Boxing"}
 p -> om(1, 2, 0) -> json: {"name":"Muffin Man","address":"Drury Lane","sport":"Boxing","claimToFame":"Match Fixing"}
 p -> om(1, 2, 0) -> om(1, 1, 0) -> p: Person(name="Muffin Man", address="Drury Lane", sport="Boxing", claimToFame="null")
+p -> om(1, 2, 0) -> om(1, 0, 0) -> p: Person(name="Muffin Man", address="Drury Lane", sport="null", claimToFame="null")
 ```
 
 ```java
