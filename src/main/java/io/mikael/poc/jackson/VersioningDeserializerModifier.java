@@ -10,6 +10,10 @@ import io.mikael.poc.Version;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * When we're deserializing JSON that contains fields from a higher API version
+ * than the deserializer version, we ignore those fields.
+ */
 public class VersioningDeserializerModifier extends BeanDeserializerModifier {
 
     private final int major, minor, patch;

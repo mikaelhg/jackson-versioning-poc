@@ -5,6 +5,10 @@ To demonstrate that creating versioned JSON APIs with Jackson is possible.
 `ObjectMapper` is modified with a `SerializationModifier` and a `DeserializationModifier`,
 which react to the presence and contents of a custom `Version` annotation in our bean classes.
 
+Here, we're just ignoring fields created by a higher version API, when reading JSON in a lower
+API version compatibility mode, but we can just as well give the `VersioningDeserializerModifier`
+a bunch of lambdas which customize behaviour by bean and by field.
+
 ```text
 p -> om(1, 0, 0) -> json: {"name":"Muffin Man","address":"Drury Lane"}
 p -> om(1, 1, 0) -> json: {"name":"Muffin Man","address":"Drury Lane","sport":"Boxing"}
