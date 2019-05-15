@@ -13,6 +13,8 @@ import java.util.List;
 /**
  * When we're deserializing JSON that contains fields from a higher API version
  * than the deserializer version, we ignore those fields.
+ *
+ * NOT RE-ENTRANT.
  */
 public class VersioningDeserializerModifier extends BeanDeserializerModifier {
 
@@ -36,7 +38,7 @@ public class VersioningDeserializerModifier extends BeanDeserializerModifier {
                                                          final List<BeanPropertyDefinition> propDefs)
     {
         final var ret = new ArrayList<BeanPropertyDefinition>();
-        for (var reader : propDefs) {
+        for (final var reader : propDefs) {
             final var version = reader.getField().getAnnotation(Version.class);
             if (null == version || isSupported(version)) {
                 ret.add(reader);

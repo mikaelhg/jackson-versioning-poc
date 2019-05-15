@@ -29,7 +29,7 @@ public class VersioningSerializerModifier extends BeanSerializerModifier {
                                                      final List<BeanPropertyWriter> beanProperties)
     {
         final List<BeanPropertyWriter> ret = new ArrayList<>();
-        for (var writer : beanProperties) {
+        for (final var writer : beanProperties) {
             final var version = writer.getAnnotation(Version.class);
             if (null == version || isSupported(version)) {
                 ret.add(writer);

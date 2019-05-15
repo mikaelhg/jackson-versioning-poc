@@ -1,4 +1,6 @@
-package io.mikael.poc;
+package io.mikael.poc.test;
+
+import io.mikael.poc.Version;
 
 public class Person {
 

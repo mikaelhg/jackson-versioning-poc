@@ -1,6 +1,5 @@
 package io.mikael.poc.test;
 
-import io.mikael.poc.Person;
 import io.mikael.poc.jackson.VersioningObjectMapper;
 import org.junit.Assert;
 import org.junit.Test;
